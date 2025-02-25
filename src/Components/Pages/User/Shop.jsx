@@ -19,7 +19,7 @@ function Shop() {
 
     const fetchVendor = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/user/vendor/${vendorId}`);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/user/vendor/${vendorId}`);
             setVendor(response.data);
             // console.log(response.data);
         } catch (error) {
@@ -32,7 +32,7 @@ function Shop() {
 
         try {
             const response = await axios.post(
-                `http://localhost:3000/user/vendor/${vendorId}/rating`,
+                `${import.meta.env.VITE_BACKEND_URL}/user/vendor/${vendorId}/rating`,
                 {
                     rating: newRating,
                     name: userName.trim() || "Anonymous",

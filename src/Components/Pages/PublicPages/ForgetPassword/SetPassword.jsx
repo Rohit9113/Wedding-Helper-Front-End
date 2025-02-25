@@ -25,7 +25,7 @@ function SetPassword() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/vendor/reset-password", {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/vendor/reset-password`, {
         email,
         otp,
         newPassword,

@@ -22,7 +22,7 @@ function Rating() {
 
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/admin/ratings-comments/${vendorId}`,
+                    `${import.meta.env.VITE_BACKEND_URL}/admin/ratings-comments/${vendorId}`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }
@@ -52,7 +52,7 @@ function Rating() {
 
         try {
             const response = await axios.delete(
-                `http://localhost:3000/admin/vendors/${vendorId}/comments/${commentId}`,
+                `${import.meta.env.VITE_BACKEND_URL}/admin/vendors/${vendorId}/comments/${commentId}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }

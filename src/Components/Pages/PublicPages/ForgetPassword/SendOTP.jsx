@@ -27,7 +27,7 @@ function ForgetPassword() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/vendor/send-reset-otp", { email });
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/vendor/send-reset-otp`, { email });
 
       if (response.data.message === "OTP sent to email") {
         toast.success("OTP sent successfully!");

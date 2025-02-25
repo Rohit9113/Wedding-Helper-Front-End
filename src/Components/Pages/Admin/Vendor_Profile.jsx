@@ -21,7 +21,7 @@ const VendorProfile = () => {
                 }
 
                 // Make the API request with the token in headers
-                const response = await axios.get(`http://localhost:3000/admin/requests/${vendorId}`, {
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/requests/${vendorId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Include token in headers
                     },

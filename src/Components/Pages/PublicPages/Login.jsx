@@ -19,7 +19,7 @@ function VendorLogin() {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.post("http://localhost:3000/vendor/login", {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/vendor/login`, {
         email,
         password,
       });

@@ -13,7 +13,7 @@ function Home() {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await fetch("http://localhost:3000/vendor/messages", {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/vendor/messages`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,
@@ -43,7 +43,7 @@ function Home() {
 
         const fetchRatings = async () => {
             try {
-                const response = await fetch("http://localhost:3000/vendor/ratings-comments", {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/vendor/ratings-comments`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,

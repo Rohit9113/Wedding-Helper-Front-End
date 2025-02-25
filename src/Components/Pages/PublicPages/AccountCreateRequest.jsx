@@ -11,7 +11,7 @@ function AccountCreateRequest() {
     setLoading(true); // Set loading to true when the request is being sent
     try {
       // Make sure to send a Content-Type header if necessary (usually for JSON)
-      const response = await axios.post("http://localhost:3000/vendor/request", {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/vendor/request`, {
         name: data.name, // Mapping vendorName to 'name'
         email: data.email, // Mapping vendorEmail to 'email'
         phone: data.phone, // Mapping phoneNumber to 'phone'

@@ -12,7 +12,7 @@ function TotalCount() {
 
             if (token && role === "admin") {
                 try {
-                    const response = await fetch("http://localhost:3000/admin/requests/count", {
+                    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/requests/count`, {
                         method: "GET",
                         headers: {
                             "Authorization": `Bearer ${token}`,

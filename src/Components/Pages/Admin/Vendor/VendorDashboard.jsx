@@ -34,7 +34,7 @@ function VendorDashboard() {
 
     const fetchApprovedVendorCount = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/admin/approved/count', {
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/approved/count`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setTotalApproved(response.data.approvedVendors);
@@ -45,7 +45,7 @@ function VendorDashboard() {
 
     const fetchVendors = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/admin/approved/vendors', {
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/admin/approved/vendors`, {
                 headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
             });
             setVendors(response.data);
@@ -68,7 +68,7 @@ function VendorDashboard() {
 
     const handleDeleteClick = async (vendorId) => {
         try {
-            await axios.delete(`http://localhost:3000/admin/vendors/${vendorId}`, {
+            await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/admin/vendors/${vendorId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setVendors(vendors.filter(vendor => vendor._id !== vendorId));
@@ -94,7 +94,7 @@ function VendorDashboard() {
 
             // Make the API POST request
             const response = await axios.post(
-                `http://localhost:3000/admin/${vendorId}/message`,
+                `${import.meta.env.VITE_BACKEND_URL}/admin/${vendorId}/message`,
                 {
                     select: type, // Message type (e.g., Congratulation, Warning)
                     text: content // Message content

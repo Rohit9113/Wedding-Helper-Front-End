@@ -15,7 +15,7 @@ function VendorDashboard() {
         const role = localStorage.getItem('role');
 
         const fetchVendors = async () => {
-            const response = await fetch('http://localhost:3000/admin/requests', {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/requests`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -37,7 +37,7 @@ function VendorDashboard() {
         const token = localStorage.getItem('adminToken');
         const role = localStorage.getItem('role');
 
-        const response = await fetch(`http://localhost:3000/admin/requests/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/requests/${id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,

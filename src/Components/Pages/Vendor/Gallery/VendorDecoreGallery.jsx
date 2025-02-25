@@ -17,7 +17,7 @@ function VendorDecoreGallery() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/vendor/images', {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/vendor/images`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -49,7 +49,7 @@ function VendorDecoreGallery() {
 
     try {
       await axios.post(
-        'http://localhost:3000/vendor/upload-images',
+        `${import.meta.env.VITE_BACKEND_URL}/vendor/upload-images`,
         formData,
         {
           headers: {
@@ -75,7 +75,7 @@ function VendorDecoreGallery() {
   const handleDeleteImage = async (imageUrl) => {
     const imageName = imageUrl.split('/').pop();
     try {
-      await axios.delete(`http://localhost:3000/vendor/images/${imageName}`, {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/vendor/images/${imageName}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

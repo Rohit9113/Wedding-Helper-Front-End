@@ -24,7 +24,7 @@ function Reviews() {
           throw new Error("Unauthorized: No token or role found");
         }
 
-        const response = await fetch("http://localhost:3000/admin/vendors/ratings-comments", {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/vendors/ratings-comments`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

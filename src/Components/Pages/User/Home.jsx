@@ -11,7 +11,7 @@ function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/user/vendors")
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/user/vendors`)
             .then(response => {
                 const sortedVendors = response.data.sort((a, b) => b.rating - a.rating);
                 setVendors(sortedVendors);

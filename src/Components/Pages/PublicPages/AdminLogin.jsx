@@ -15,7 +15,7 @@ function AdminLogin() {
         e.preventDefault();
     
         try {
-            const response = await fetch("http://localhost:3000/admin/login", {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -29,7 +29,7 @@ function AdminLogin() {
                 localStorage.setItem("role", data.admin.role);
                 localStorage.setItem("adminToken", data.token);
                 // localStorage.setItem("adminData", JSON.stringify(data.admin));
-                // console.log('Name',data.admin.name)
+                console.log('Name',data.admin.name)
     
                 toast.success("Login successful!");
     
