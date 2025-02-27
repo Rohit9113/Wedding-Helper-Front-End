@@ -12,7 +12,7 @@ function Footer() {
 
         {/* Logo & About */}
         <div>
-          <h2 className="text-2xl font-bold text-blue-400">Shop Showcase</h2>
+          <h2 className="text-2xl font-bold text-blue-400">RatingHelper</h2>
           <p className="mt-3 text-gray-400">
             Discover the best shops for decoration, tents, DJ sounds, and more!
           </p>

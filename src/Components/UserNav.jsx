@@ -27,7 +27,7 @@ function Nav() {
             {/* Desktop Navbar */}
             <div className="container mx-auto flex justify-between items-center p-4">
                 <h1 className="text-2xl font-bold tracking-wide cursor-pointer text-white">
-                    LOGO
+                    RatingHelper
                 </h1>
 
                 <div className="hidden md:flex space-x-8">

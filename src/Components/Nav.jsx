@@ -28,7 +28,7 @@ function Nav() {
   return (
     <nav className="bg-blue-600 p-4 fixed w-full top-0 left-0 z-50 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-xl">Brand</div>
+        <div className="text-white font-bold text-xl">RatingHelper</div>
 
         <div className="hidden md:flex space-x-6 items-center flex-1 justify-center">
           <a href="/vendor/home" className="text-white hover:text-gray-200">Home</a>
