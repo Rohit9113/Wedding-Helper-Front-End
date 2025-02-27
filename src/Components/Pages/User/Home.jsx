@@ -5,9 +5,11 @@ import Nav from '../../UserNav';
 import Footer from './Footer';
 import Banner from './Banner';
 import axios from "axios";
+import Other from "../PublicPages/Other";
 
 function Home() {
     const [vendors, setVendors] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,12 +17,16 @@ function Home() {
             .then(response => {
                 const sortedVendors = response.data.sort((a, b) => b.rating - a.rating);
                 setVendors(sortedVendors);
-                // console.log(sortedVendors);
             })
             .catch(error => console.error("Error fetching vendors:", error));
     }, []);
 
     const openVendorPage = (vendorId) => navigate(`/Shop/${vendorId}`);
+
+    const filteredVendors = vendors.filter(vendor =>
+        vendor.shopName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        vendor.shopAddress.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
         <>
@@ -50,8 +56,18 @@ function Home() {
                     Explore, Rate & Review – Find the Best Shops Near You!
                 </motion.h1>
 
+                <div className="max-w-3xl mx-auto mb-10">
+                    <input
+                        type="text"
+                        placeholder="Search by shop name or address..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    {vendors.map((vendor) => (
+                    {filteredVendors.map((vendor) => (
                         <motion.div
                             key={vendor._id}
                             className="bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105"
@@ -84,6 +100,8 @@ function Home() {
                     ))}
                 </div>
             </div>
+
+            <Other />
             <Footer />
         </>
     );

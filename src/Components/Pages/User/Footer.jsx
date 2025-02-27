@@ -1,11 +1,15 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  const navigate = useNavigate();
+
+
   return (
     <footer className="bg-gray-900 text-white pt-10 pb-5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+
         {/* Logo & About */}
         <div>
           <h2 className="text-2xl font-bold text-blue-400">Shop Showcase</h2>
@@ -46,7 +50,7 @@ function Footer() {
 
       {/* Copyright */}
       <div className="mt-6 text-center text-gray-500">
-        © {new Date().getFullYear()} Shop Showcase. All rights reserved.
+        © {new Date().getFullYear()} Shop Showcase. All rights reserved <button onClick={() => navigate("/admin-login")}>.</button>
       </div>
     </footer>
   );
